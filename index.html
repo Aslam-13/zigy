@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Video Frontend</title>
+</head>
+
+<body>
+	<form id="my-form">
+		<input type="file" name="my-video" accept="video/*">
+	</form>
+	<button id="upload-btn">Upload Video</button>
+</body>
+
+<script type="text/javascript">
+	const uploadButton = document.querySelector('#upload-btn');
+	uploadButton.addEventListener('click', (e) => {
+		const form = document.querySelector('#my-form');
+		const formData = new FormData(form);
+		fetch('http://localhost:3000/upload-video', {
+  			method: 'POST',
+  			body: formData,
+		});
+	});
+</script>
+</html>
